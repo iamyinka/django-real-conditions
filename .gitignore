@@ -1,0 +1,51 @@
+# --- Secrets and local configuration: never commit ---------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.ovpn
+pki/
+secrets/
+
+# --- Local environments ------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.python-version
+
+# --- Databases, uploaded media, generated files ------------------------------
+*.sqlite3
+*.db
+media/
+staticfiles/
+*.dump
+*.sql.gz
+backups/
+
+# --- Rendered course media: stored outside Git (checksums are committed) ---
+*.mp4
+*.webm
+*.mov
+*.wav
+*.mp3
+*.m4a
+course/**/render/
+
+# --- Tool caches -------------------------------------------------------------
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+playwright-report/
+test-results/
+
+# --- Editors and OS ----------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.claude/settings.local.json

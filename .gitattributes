@@ -1,0 +1,6 @@
+# Normalize line endings so Windows checkouts don't break shell scripts or Dockerfiles.
+* text=auto eol=lf
+*.sh text eol=lf
+*.png binary
+*.jpg binary
+*.svg text
