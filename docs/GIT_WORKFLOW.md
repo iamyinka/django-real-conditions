@@ -95,3 +95,17 @@ Checkpoint tags are lightweight markers for teaching. Release tags are annotated
 Secrets, `.env` files, private keys, VPN profiles, uploaded media, database files, virtual environments, or rendered video and audio. The `.gitignore`, the `detect-private-key` hook, and **gitleaks** (run locally and in CI) enforce this.
 
 If a secret is ever committed, **rotate it immediately**. Rewriting Git history afterwards doesn't undo the exposure: the secret may already be cloned, cached, or indexed.
+
+## Running CI locally with `act`
+
+[`act`](https://github.com/nektos/act) runs a GitHub Actions workflow in local Docker containers. This lets you debug a workflow without pushing, and it gives you evidence when hosted Actions isn't available.
+
+```bash
+# From the repository root, with Docker running. Apple Silicon needs the arm64 flag.
+act pull_request -e pr_event.json -j repo-checks \
+  -P ubuntu-24.04=catthehacker/ubuntu:act-24.04 --container-architecture linux/arm64
+```
+
+- `-e pr_event.json` supplies a minimal pull request payload: `{"pull_request": {"head": {"ref": "<branch>"}, "base": {"ref": "main"}}}`. Without it, `pull_request` runs can fail with `reference not found`.
+- An `act` run is **not** a GitHub-hosted run. The runner image, network access, and secrets differ, so label the result as "run locally with act".
+- It does catch real workflow bugs. Our first local run found that `astral-sh/setup-uv` publishes only full version tags, so `@v10` doesn't resolve and `@v10.3.3` does.
