@@ -59,12 +59,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# For now this is SQLite, a file next to manage.py. It's replaced by PostgreSQL
-# in lesson M1.5, once the database runs in its own container.
+# PostgreSQL in its own container. DB_HOST is the *Compose service name* ("db"):
+# Compose runs a DNS server on the project network that resolves service names
+# to container IPs. "localhost" inside the web container is the web container itself.
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT", "5432"),
     }
 }
 
