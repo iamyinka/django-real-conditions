@@ -15,6 +15,11 @@ services:
       # off your LAN. A bare "8001:8000" listens on every interface, and Docker's
       # port publishing can bypass a host firewall.
       - "127.0.0.1:8001:8000"
+    volumes:
+      # Bind mount: your project directory on the host appears at /app in the container.
+      # Edits show up instantly and runserver auto-reloads. The venv lives at /opt/venv
+      # (baked into the image), so this mount doesn't hide the installed dependencies.
+      - .:/app
     depends_on:
       - db  # start order only. "Started" doesn't mean "ready to accept connections" (see M1.8).
 
@@ -25,5 +30,15 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      # Named volume: Docker manages the storage, and it outlives any container.
+      # Postgres 18 images keep data under /var/lib/postgresql/18/docker. Mount the PARENT
+      # (/var/lib/postgresql), which is what the image declares as its VOLUME. Older tutorials
+      # mount /var/lib/postgresql/data. On 18.6, that makes the container exit (code 1)
+      # with a message explaining the new layout (tested 2026-11-07).
+      - pgdata:/var/lib/postgresql
     # No "ports:" here: the database is reachable only from containers on this project's
     # network (as db:5432), not from your host or LAN.
+
+volumes:
+  pgdata:  # removed only by `docker compose down -v` or `docker volume rm telecom_pgdata`
