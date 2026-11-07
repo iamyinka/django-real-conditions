@@ -1,0 +1,31 @@
+name: Bug
+description: Something behaves differently from what was specified
+labels: ["bug"]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened
+      description: Include exact error text and where it happened (browser, web container, worker, CI).
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The commands and working directory, starting from a clean checkout.
+    validations:
+      required: true
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options: [telecom, telehealth, streaming, labtrack, intranet, repository-wide]
+    validations:
+      required: true

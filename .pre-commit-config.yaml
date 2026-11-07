@@ -1,0 +1,29 @@
+# Local quality gate. The same hooks run in CI (.github/workflows/repo-checks.yml),
+# so "it passed on my machine" and "it passed in CI" mean the same thing.
+#   Install once:   uvx pre-commit@4.7.0 install
+#   Run manually:   uvx pre-commit@4.7.0 run --all-files
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.md$                    # Markdown uses trailing spaces for line breaks
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict          # catches leftover <<<<<<< markers
+      - id: check-added-large-files
+        args: ["--maxkb=500"]             # media belongs in object storage, not Git
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.4
+    hooks:
+      - id: ruff-check
+        args: ["--fix"]
+      - id: ruff-format
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks                       # scans staged changes for secrets
