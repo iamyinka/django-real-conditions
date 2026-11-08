@@ -1,6 +1,6 @@
 # Version manifest
 
-**Validated 2026-11-07** on macOS 26.6.2 (Apple Silicon) with Docker Desktop (Engine 29.3.1, Compose 5.1.1). The containers run Linux arm64.
+**Validated 2026-11-07** on macOS 26.6.2 (Apple Silicon) with Docker Desktop (Engine 29.3.1, Compose 5.1.1). The containers run Linux arm64. **Re-validated 2026-11-08** after Docker Desktop updated itself to 4.98.0 (Engine 29.9.2, Compose 5.6.1): telecom 16 passed, `tools/stack-check` 17 passed.
 
 This replaces the *proposed* table in the course proposal (section 7.1). Every version below is exact. Each row has one of these statuses:
 
@@ -90,7 +90,7 @@ A row never moves to *Validated* because a resolver succeeded or a package impor
 | Tool | Version |
 |---|---|
 | macOS | 26.6.2 (arm64) |
-| Docker Engine / Compose | 29.3.1 / 5.1.1 |
+| Docker Desktop / Engine / Compose | 4.98.0 / 29.9.2 / 5.6.1 (M0 recorded on these; M1 code validated on 29.3.1 / 5.1.1 too) |
 | Git | 2.50.1 |
 | FFmpeg | 8.0.1 |
 | Kokoro TTS (narration) | 0.9.4, voice `af_heart` |

@@ -37,6 +37,13 @@ COMPOUNDS = {
     "pre commit": "precommit",
     "pie test": "pytest",
     "intra net": "intranet",
+    # Spelling variants of the same spoken words (script form on the right).
+    "mac os": "macos",
+    "file system": "filesystem",
+    "okay": "ok",
+    "a p i": "api",
+    "no reply": "noreply",
+    "soo doo": "sudo",
 }
 WORDNUM = {
     "eleven": "11",
@@ -53,8 +60,10 @@ WORDNUM = {
 
 
 def words(text):
-    t = text.lower().replace("-", " ")
+    # Whisper writes spoken "dash dash version" as "--version".
+    t = text.lower().replace("--", " dash dash ").replace("-", " ")
     t = re.sub(r"\bpostgres(ql)?\b", "postgres", t)
+    t = re.sub(r"\b(\d+) ?gb\b", r"\1 gigabytes", t)
     for a, b in COMPOUNDS.items():
         t = t.replace(a, b)
     toks = [NUMBERS.get(w, WORDNUM.get(w, w)) for w in re.findall(r"[a-z0-9']+", t)]

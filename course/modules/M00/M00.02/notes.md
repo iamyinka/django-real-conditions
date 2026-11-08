@@ -57,7 +57,7 @@ Versions used to record the course are in [`course/VERSIONS.md`](../../../VERSIO
 | `Client` | The `docker` CLI you typed |
 | `Server` | The Docker daemon (`dockerd`) that builds images and runs containers. On macOS and Windows it runs inside a Linux VM managed by Docker Desktop. |
 
-- **If it fails:** `Cannot connect to the Docker daemon at unix:///…/docker.sock. Is the docker daemon running?` means the client works but the daemon isn't reachable. Start Docker Desktop, or on Linux run `sudo systemctl start docker` (and `sudo systemctl enable docker` to start it at boot).
+- **If it fails:** `failed to connect to the docker API at unix:///…/docker.sock; check if the path is correct and if the daemon is running` means the client works but the daemon isn't reachable. (Docker 29 wording. Older versions and older tutorials say `Cannot connect to the Docker daemon at …. Is the docker daemon running?`) Start Docker Desktop, or on Linux run `sudo systemctl start docker` (and `sudo systemctl enable docker` to start it at boot).
 
 ### `docker run --rm hello-world`
 
@@ -71,7 +71,7 @@ Versions used to record the course are in [`course/VERSIONS.md`](../../../VERSIO
 - **If it fails:** a pull error usually means no network access to Docker Hub, or a proxy.
 
 ### `docker compose version`
-- **Expected output:** `Docker Compose version v5.1.1`
+- **Expected output:** `Docker Compose version v5.6.1` (any v5)
 - `docker compose` (space) is the Compose v2+ plugin. `docker-compose` (hyphen) is the retired v1 Python program. Don't install it.
 
 ### `sh scripts/doctor.sh`
