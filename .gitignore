@@ -8,6 +8,9 @@
 *.ovpn
 pki/
 secrets/
+# Local settings files hold real credentials, and gitleaks doesn't flag every
+# password (it passed a postgres:// URL with a random password in M0.3).
+settings_local.py
 
 # --- Local environments ------------------------------------------------------
 .venv/
