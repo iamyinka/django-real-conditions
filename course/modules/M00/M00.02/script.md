@@ -45,6 +45,7 @@ Git also needs to know who you are, because your name and email go into every co
 Set them once with git config, using the --global flag so they apply to every repository on this machine.
 > spoken: Set them once with git config, using the dash dash global flag so they apply to every repository on this machine.
 If you'll push to a public repository, use the private no-reply email that GitHub gives you, so your real address isn't published in the history.
+> spoken: If you'll push to a public repository, use the private no reply email that GitHub gives you, so your real address isn't published in the history.
 
 ---
 
@@ -57,7 +58,7 @@ Piping a download straight into your shell means you're trusting that server com
 > spoken: Piping a download straight into your shell means you're trusting that server completely.
 If that makes you uneasy, good: download the script first, read it, then run it, or use your package manager instead.
 Check it with uv --version.
-> spoken: Check it with U V dash dash version.
+> spoken: Check it with U V, dash dash version.
 Now ask uv for Python three fourteen.
 > spoken: Now ask U V for Python three fourteen.
 It downloads a standalone Python and keeps it separate from anything your operating system uses.
@@ -87,7 +88,8 @@ That's why a container on your Mac is running Linux, not macOS.
 Here's the failure you're most likely to see.
 I've quit Docker Desktop, and I'll run docker version again.
 The client section prints fine.
-Then: cannot connect to the Docker daemon.
+Then: failed to connect to the Docker API.
+> spoken: Then: failed to connect to the Docker A P I.
 The command exists, so a quick check that the docker command is installed would pass.
 But nothing can run, because the server isn't there.
 The fix is to start Docker Desktop, or on Linux, start the docker service.
@@ -123,7 +125,7 @@ This course always uses the plugin form.
 
 A few differences by platform.
 On Linux, you may be told to add yourself to the docker group so you don't need sudo.
-> spoken: On Linux, you may be told to add yourself to the docker group so you don't need sudo.
+> spoken: On Linux, you may be told to add yourself to the docker group so you don't need soo doo.
 Know what that means: anyone in that group can control the daemon, and the daemon runs as root.
 It's effectively root access, so only do it on a machine you control.
 On Windows, use WSL two, and keep your code inside the Linux filesystem, under your Linux home folder.

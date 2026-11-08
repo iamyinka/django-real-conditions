@@ -82,7 +82,7 @@ When the container creates a file in a bind mount, say a new migration, the file
 On macOS and Windows, Docker Desktop translates ownership, so you won't notice.
 On Linux, there's no translation.
 If your own user ID isn't one thousand, those files belong to someone else, and you can't edit them without sudo.
-> spoken: If your own user I D isn't one thousand, those files belong to someone else, and you can't edit them without sudo.
+> spoken: If your own user I D isn't one thousand, those files belong to someone else, and you can't edit them without soo doo.
 That's why U I D and G I D are build arguments.
 On Linux, build with your own IDs, and the container's user matches yours.
 > spoken: On Linux, build with your own I Ds, and the container's user matches yours.

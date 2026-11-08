@@ -27,6 +27,9 @@ This glossary maps each term's **caption** form (shown on screen) to its **spoke
 | .venv | **dot V env** | | |
 | WSL, PR, CI, DNS, SMS, API, VPN | Letters with spaces (**W S L**, **P R**, …) | | Space-separated capitals are read as letters |
 | psql | **P S Q L** | | |
+| sudo | **soo doo** | `sˈu dˈu` | misaki gives `sˈudO`, the same as "pseudo", and base.en heard "pseudo" (M0.2). |
+| uv --version (any spelled-out letters before a flag) | **U V, dash dash version** | | Without the comma, Kokoro runs "V dash dash" together and both Whisper models heard one "dash" (M0.2). |
+| no-reply | **no reply** | `nˈO ɹəplˈI` | Hyphenated, misaki joins it (`nˌOɹəplˈI`) and both Whisper models heard "nor apply" (M0.2). |
 | intranet | **intra net** | `ˈɪntɹə nˈɛt` | As written (`ˈɪntɹənˌɛt`), Whisper heard "internet" in the M0.1 check. The space keeps "tra" clear. |
 | 0.0.0.0 / 127.0.0.1 | **one two seven point oh point oh point one** (captions show the digits) | | Spoken "oh" is clearer than "zero" in IPs |
 
