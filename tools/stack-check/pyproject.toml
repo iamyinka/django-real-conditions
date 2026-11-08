@@ -1,0 +1,50 @@
+# Throwaway project that proves the course's version manifest works together.
+# Every package the course uses is pinned here and exercised in tests/.
+[project]
+name = "stack-check"
+version = "0"
+requires-python = ">=3.14"
+dependencies = [
+    "django==6.1.3",
+    "psycopg[binary]==3.3.8",
+    "djangorestframework==3.18.3",
+    "django-filter==26.2",
+    "django-cors-headers==4.9.0",
+    "whitenoise==6.12.0",
+    "celery[redis]==5.7.0",
+    "redis==8.1.0",
+    "channels==4.3.2",
+    "channels-redis==4.3.0",
+    "daphne==4.2.3",
+    "uvicorn[standard]==0.54.0",
+    "gunicorn==26.2.0",
+    "django-storages[s3]==1.14.6",
+    "boto3==1.43.126",
+    "pillow==13.0.0",
+    "livekit-api==1.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "pytest-django==4.14.0",
+    "factory-boy==3.3.3",
+    "time-machine==3.6.0",
+    "playwright==1.64.1",
+    "pytest-playwright==0.10.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "stackcheck.settings"
+markers = ["services: needs the Compose services (worker, S3, servers)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["probe/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
