@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Project apps
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,9 @@ DATABASES = {
         "PASSWORD": env("POSTGRES_PASSWORD"),
         "HOST": env("DB_HOST"),
         "PORT": env("DB_PORT", "5432"),
+        # Fail fast. Without this, connecting to an unreachable host can block for minutes,
+        # and so would /readyz and every request.
+        "OPTIONS": {"connect_timeout": 5},
     }
 }
 

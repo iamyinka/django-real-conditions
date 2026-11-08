@@ -42,6 +42,16 @@ Then open http://localhost:8001/.
 
 `exec` enters the container that's already running, so it shares that container's state. `run` creates a new container from the same service definition: it has a different hostname and its own temporary filesystem. Use `run --rm` for one-off tasks when the service isn't up.
 
+## Health checks
+
+| URL / command | Answers | DB down |
+|---|---|---|
+| `GET /healthz` | Is the process serving requests? (liveness) | Still `200`. Restarting web wouldn't fix the DB. |
+| `GET /readyz` | Can this instance do useful work? (readiness: `SELECT 1`) | `503 {"status": "unavailable"}`. Details go to the logs, not the response. |
+| `python manage.py wait_for_db --timeout 30` | Blocks until the DB accepts connections, then exits 0 | Exits 1 with `CommandError` after the deadline |
+
+`docker compose ps` shows each container's health. `web` doesn't start until `db` reports `healthy` (`depends_on: condition: service_healthy`).
+
 ## Configuration
 
 Settings are read from environment variables (see `.env.example`). The settings modules are:
