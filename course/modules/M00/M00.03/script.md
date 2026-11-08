@@ -30,6 +30,7 @@ And dot github holds the pull request template, issue forms, and the CI workflow
 Why put five apps in one repository?
 For a course, it means one clone, one history, and one set of checkpoint tags to follow.
 Teams do this too, and it's called a monorepo.
+> spoken: Teams do this too, and it's called a mono repo.
 It makes changes that touch several projects reviewable in one pull request.
 But one repository doesn't mean one application.
 That distinction drives the whole layout.
@@ -41,7 +42,7 @@ That distinction drives the whole layout.
 Open projects, then telecom.
 > spoken: Open projects, then telecom.
 It has its own dependency list in pyproject dot toml, its own lock file, its own Dockerfile, and its own compose file.
-> spoken: It has its own dependency list in pyproject dot toml, its own lock file, its own Dockerfile, and its own compose file.
+> spoken: It has its own dependency list in pie project dot toml, its own lock file, its own Dockerfile, and its own compose file.
 Each project you'll build gets the same set.
 You can start, stop, upgrade, or delete one project without touching the others.
 The telehealth app can move to a newer library while telecom stays put.

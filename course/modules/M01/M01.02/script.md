@@ -27,14 +27,14 @@ First, a project file.
 Run uv init, with the bare flag, the python flag set to three fourteen, and the name telecom.
 > spoken: Run U V init, with the dash dash bare flag, the python flag set to three fourteen, and the name telecom.
 Bare means: create only pyproject dot toml, with no sample code.
-> spoken: Bare means: create only pyproject dot toml, with no sample code.
+> spoken: Bare means: create only pie project dot toml, with no sample code.
 That file is the project's identity card: its name, the Python versions it supports, and its dependencies.
 Now add Django, pinned to an exact version: uv add django, two equals signs, six point one point three.
 > spoken: Now add Django, pinned to an exact version: U V add Django, at exactly six point one point three.
 uv does three things here.
 > spoken: U V does three things here.
 It records the dependency in pyproject dot toml.
-> spoken: It records the dependency in pyproject dot toml.
+> spoken: It records the dependency in pie project dot toml.
 It writes uv dot lock, with the exact version and checksum of every package, including Django's own dependencies.
 > spoken: It writes U V dot lock, with the exact version and checksum of every package, including Django's own dependencies.
 And it creates a virtual environment, dot venv, and installs everything into it.
@@ -145,7 +145,7 @@ For now, the database is SQLite, a single file; Postgres arrives with Compose in
 These helpers decide whether the app starts at all, so they get tests.
 Missing values, empty values, the accepted true and false spellings, the typo, and list splitting.
 Run uv run pytest.
-> spoken: Run U V run pytest.
+> spoken: Run U V run pie test.
 Ten passed.
 
 ---

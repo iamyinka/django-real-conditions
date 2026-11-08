@@ -37,7 +37,7 @@ We'll have two: web, for Django, and db, for Postgres.
 
 Django needs a driver to talk to Postgres.
 uv add, psycopg with the binary extra, pinned to three point three point eight.
-> spoken: U V add psycopg, with the binary extra, pinned to three point three point eight.
+> spoken: U V add psycho P G, with the binary extra, pinned to three point three point eight.
 The binary extra ships a compiled client library, so the slim image doesn't need compilers.
 In base settings, the database engine becomes Postgres, and every connection detail comes from the environment: name, user, password, host, and port.
 > spoken: In base settings, the database engine becomes Postgres, and every connection detail comes from the environment: name, user, password, host, and port.

@@ -82,7 +82,7 @@ COPY dot dot copies the build context, our project folder, into slash app.
 RUN uv sync, with the locked flag, installs exactly what uv dot lock says.
 > spoken: Run U V sync, with the locked flag, installs exactly what U V dot lock says.
 If the lock file doesn't match pyproject dot toml, the build fails instead of quietly resolving new versions.
-> spoken: If the lock file doesn't match pyproject dot toml, the build fails instead of quietly resolving new versions.
+> spoken: If the lock file doesn't match pie project dot toml, the build fails instead of quietly resolving new versions.
 EXPOSE eight thousand is documentation only: it says which port the app listens on, and publishes nothing.
 > spoken: Expose eight thousand is documentation only: it says which port the app listens on, and publishes nothing.
 And CMD is the default command when a container starts: runserver, on zero point zero point zero point zero, port eight thousand.

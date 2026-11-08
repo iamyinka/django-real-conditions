@@ -127,7 +127,7 @@ I'll change the URL configuration and save.
 The logs show runserver detecting the change and restarting.
 No rebuild.
 Just remember the limit: change pyproject dot toml, and you still need to rebuild, because dependencies live in the image.
-> spoken: Just remember the limit: change pyproject dot toml, and you still need to rebuild, because dependencies live in the image.
+> spoken: Just remember the limit: change pie project dot toml, and you still need to rebuild, because dependencies live in the image.
 
 ---
 

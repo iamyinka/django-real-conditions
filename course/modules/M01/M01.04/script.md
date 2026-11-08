@@ -83,7 +83,7 @@ On a slow connection, with a bigger project, that's minutes, on every edit.
 
 The fix is to order layers from least likely to change, to most likely.
 First copy only pyproject dot toml and uv dot lock.
-> spoken: First copy only pyproject dot toml and U V dot lock.
+> spoken: First copy only pie project dot toml and U V dot lock.
 Then install dependencies from them.
 Then copy the code.
 Now, editing Python changes only the last layer.
@@ -125,12 +125,12 @@ The image also shrank, from three hundred and eighty-five megabytes to three hun
 
 One last point about locking.
 pyproject dot toml says what we want.
-> spoken: Pyproject dot toml says what we want.
+> spoken: pie project dot toml says what we want.
 uv dot lock records what we got: every package, its exact version, and a hash of the file.
 > spoken: U V dot lock records what we got: every package, its exact version, and a hash of the file.
 Build this image next month, on another machine, and you get the same packages.
 If someone edits pyproject dot toml and forgets to update the lock, the locked flag stops the build with a clear error, instead of letting versions drift silently.
-> spoken: If someone edits pyproject dot toml and forgets to update the lock, the locked flag stops the build with a clear error, instead of letting versions drift silently.
+> spoken: If someone edits pie project dot toml and forgets to update the lock, the locked flag stops the build with a clear error, instead of letting versions drift silently.
 
 ---
 
