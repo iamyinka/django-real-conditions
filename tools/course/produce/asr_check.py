@@ -1,4 +1,4 @@
-"""Transcribe the narration with a local Whisper model and compare it with the script.
+"""Transcribe the narration with a local Whisper model (small.en) and compare it with the script.
 
     <whisper-venv>/bin/python -I tools/course/produce/asr_check.py course/modules/M00/M00.01
 
@@ -44,6 +44,15 @@ COMPOUNDS = {
     "a p i": "api",
     "no reply": "noreply",
     "soo doo": "sudo",
+    "c i": "ci",
+    "a pi": "api",
+    "pie project": "pyproject",
+    "docker file": "dockerfile",
+    "un commit": "uncommit",
+    "new line": "newline",
+    "editor config": "editorconfig",
+    "git ignore": "gitignore",
+    "git attributes": "gitattributes",
 }
 WORDNUM = {
     "eleven": "11",
@@ -60,12 +69,15 @@ WORDNUM = {
 
 
 def words(text):
-    # Whisper writes spoken "dash dash version" as "--version".
-    t = text.lower().replace("--", " dash dash ").replace("-", " ")
+    # Whisper writes what was spoken as "dash dash version", "dot env", "one point oh point oh" and
+    # "manage dot py" as "--version", ".env", "1.0.0" and "manage.py". Spell them out the same way.
+    t = re.sub(r"(?<=\d)\.(?=\d)", " point ", text.lower())
+    t = re.sub(r"\.(?=[a-z])", " dot ", t)
+    t = t.replace("--", " dash dash ").replace("-", " ")
     t = re.sub(r"\bpostgres(ql)?\b", "postgres", t)
     t = re.sub(r"\b(\d+) ?gb\b", r"\1 gigabytes", t)
     for a, b in COMPOUNDS.items():
-        t = t.replace(a, b)
+        t = re.sub(rf"\b{re.escape(a)}\b", b, t)
     toks = [NUMBERS.get(w, WORDNUM.get(w, w)) for w in re.findall(r"[a-z0-9']+", t)]
     out, run = (
         [],
@@ -103,7 +115,7 @@ def main(lesson_dir):
         capture_output=True,
         check=True,
     ).stdout
-    model = WhisperModel("base.en", device="cpu", compute_type="int8")
+    model = WhisperModel("small.en", device="cpu", compute_type="int8")
     segs, _ = model.transcribe(
         np.frombuffer(pcm, np.float32), language="en", beam_size=5
     )

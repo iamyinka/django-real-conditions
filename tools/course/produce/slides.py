@@ -163,6 +163,7 @@ def terminal(d, box, lines, size=26, label="Terminal"):
         runs = [(line, TEXT, False)] if isinstance(line, str) else line
         x = x0 + 32
         for text, col, hi in runs:
+            text = text.replace("\t", "    ")  # Menlo draws a tab as an empty box
             if (
                 x - x0 - 32 + f.getlength(text) > maxw
             ):  # clip, never overflow the window
