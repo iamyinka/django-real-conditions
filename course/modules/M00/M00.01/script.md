@@ -31,7 +31,7 @@ Second, a telehealth platform, with appointments, private documents, and video c
 Third, a streaming service for learners on slow, expensive connections.
 Fourth, a lab logistics app that tracks specimens and live courier locations.
 And fifth, a private intranet that's only reachable over the office network or a VPN.
-> spoken: And fifth, a private intranet that's only reachable over the office network or a V P N.
+> spoken: And fifth, a private intra net that's only reachable over the office network or a V P N.
 Each project introduces new problems, and each one reuses what the earlier projects taught.
 The first project gets the most time, because that's where the foundations go in.
 

@@ -57,6 +57,8 @@ Each major concept goes through these steps. They may be spread across consecuti
 
 On screen and in notes, mark anything **Simulated**, **Prepared-only**, or **Hypothesis**. Mark anything untested as untested. Never present a configuration file as proof that a system works.
 
+On screen they're pill badges (defined in `tools/course/produce/slides.py`, `BADGES`): **Simulated** amber (`#78350f` / `#fde68a`), **Prepared-only** blue (`#1e3a8a` / `#bfdbfe`), **Hypothesis** violet (`#4c1d95` / `#ddd6fe`). No badge means it ran.
+
 ## Writing for text-to-speech (Kokoro, voice `af_heart`)
 
 The course narration uses the voice approved in the pilot. Each script line has a **caption** form (what's written on screen) and, only when needed, a **spoken** form.

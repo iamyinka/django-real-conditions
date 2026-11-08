@@ -27,6 +27,7 @@ This glossary maps each term's **caption** form (shown on screen) to its **spoke
 | .venv | **dot V env** | | |
 | WSL, PR, CI, DNS, SMS, API, VPN | Letters with spaces (**W S L**, **P R**, …) | | Space-separated capitals are read as letters |
 | psql | **P S Q L** | | |
+| intranet | **intra net** | `ˈɪntɹə nˈɛt` | As written (`ˈɪntɹənˌɛt`), Whisper heard "internet" in the M0.1 check. The space keeps "tra" clear. |
 | 0.0.0.0 / 127.0.0.1 | **one two seven point oh point oh point one** (captions show the digits) | | Spoken "oh" is clearer than "zero" in IPs |
 
 ## Terms to verify when a lesson first uses them
