@@ -1,0 +1,26 @@
+# Files Docker should NOT send to the build context.
+# A smaller context means faster builds, and secrets can't leak into image layers.
+
+# A host virtualenv is built for the host OS (a macOS venv is useless in Linux) and is large.
+.venv/
+**/__pycache__/
+**/*.py[cod]
+
+# Secrets and local data must never be baked into an image.
+.env
+.env.*
+!.env.example
+*.sqlite3
+media/
+
+# Tool caches and VCS metadata the image doesn't need.
+.git/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Docker files themselves (changing them shouldn't invalidate the COPY . . layer).
+Dockerfile
+.dockerignore
+compose*.yaml
