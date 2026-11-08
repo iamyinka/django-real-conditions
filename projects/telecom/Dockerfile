@@ -36,10 +36,27 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-install-project
 
 # ...and copy the code last. Editing a .py file now invalidates only this layer.
+# The code stays owned by root, so the app user below can read it but not modify it.
 COPY . .
+
+# Run as an unprivileged user. If an attacker gets code execution through the app,
+# they get a user who can't install packages, change the code, or write to system paths.
+# UID/GID default to 1000, the first regular user on most Linux hosts. With a bind mount
+# (compose.yaml), files the container creates in /app, such as new migrations, belong to
+# this UID on the host. On Linux, build with your own IDs:
+#   docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+# Docker Desktop (macOS/Windows) maps ownership automatically.
+ARG UID=1000
+ARG GID=1000
+RUN groupadd --gid "${GID}" app \
+    && useradd --uid "${UID}" --gid app --no-create-home --home-dir /nonexistent \
+       --shell /usr/sbin/nologin app
+# Every instruction after this one, and the running container, use this user.
+USER app
 
 # Documentation only: the app listens on 8000 inside the container.
 # Publishing it to the host happens at `docker run -p` or in compose.yaml.
+# Ports below 1024 would need root; 8000 doesn't.
 EXPOSE 8000
 
 # Bind to 0.0.0.0, not 127.0.0.1: inside a container, 127.0.0.1 is the container

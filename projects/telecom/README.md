@@ -61,6 +61,13 @@ Settings are read from environment variables (see `.env.example`). The settings 
 
 A missing required variable stops startup with `ImproperlyConfigured: Set the <NAME> environment variable.`
 
+### Secrets and users
+
+- `.env` is git-ignored and excluded from the image by `.dockerignore`. It reaches the container only at run time, through `env_file`. `.env.example` is committed and holds placeholders only.
+- Environment variables are visible to anyone who can run `docker inspect` or `docker compose exec web env`. That's fine on a dev machine, but production uses a secret store (Module 7).
+- The container runs as `app` (uid 1000), not root. The code in the image is owned by root and read-only to `app`.
+- **Linux hosts:** files the container creates in the bind mount (for example `makemigrations` output) belong to uid 1000 on your host. If your uid differs (`id -u`), rebuild with `docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g)`.
+
 ## Troubleshooting
 
 | Symptom | Likely cause | Fix |
