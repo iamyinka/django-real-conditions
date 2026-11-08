@@ -9,7 +9,7 @@
 | 5 | Slide: the three label badges, styled as they'll appear in later lessons | **Simulated** · **Prepared-only** · **Hypothesis** | slide; badge styles from `course/style` | 50 |
 | 6 | Terminal (scripted): `git tag -l 'lesson/M01.0*'`, then `git diff --stat lesson/M01.05-start lesson/M01.05-end` | Highlight `-start` / `-end` pairs | repo tags | 55 |
 | 7 | Terminal still: the real M1.5 error, then the host/container diagram with "localhost" pointing back into web | `connection to server at "127.0.0.1", port 5432 failed: Connection refused` highlighted | captured during M1.5 verification; diagram `m1-localhost` | 55 |
-| 8 | Editor: `course/modules/M01/M01.05/notes.md` scrolling through a command table and a line-by-line table | Highlight the "Part / Meaning" table and "If it fails" | repo file | 45 |
+| 8 | Editor: `course/modules/M01/M01.05/notes.md` scrolling through a command table and a line-by-line table | Highlight the "Part \| Meaning" table, then the "Troubleshooting" table | repo file | 45 |
 | 9 | Slide: "You need" / "You don't need" columns | Python, terminal · Docker, advanced Django | slide | 40 |
 | 10 | Slide: title card for M0.2 | "Next: your toolchain, verified" | slide | 10 |
 
